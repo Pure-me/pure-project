@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import ExportBar from '@/components/ExportBar';
+import { useI18n } from '@/lib/i18n';
 
 interface CAPA {
   id: string;
@@ -75,6 +77,7 @@ function StageBar({ stage }: { stage: string }) {
 
 export default function CAPAPage() {
   const router = useRouter();
+  const { locale } = useI18n();
   const [capas, setCapas] = useState<CAPA[]>([]);
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState('all');
@@ -175,6 +178,27 @@ export default function CAPAPage() {
           </div>
         ))}
       </div>
+
+      {/* Export */}
+      {!loading && capas.length > 0 && (
+        <ExportBar
+          title={locale === 'nl' ? 'CAPA Overzicht' : 'CAPA Overview'}
+          subtitle={`${new Date().toLocaleDateString('nl-BE')} — Pure Project`}
+          columns={[
+            { key: 'shortId', label: 'ID', width: 16 },
+            { key: 'nonconformityDescription', label: locale === 'nl' ? 'Omschrijving' : 'Description', width: 50 },
+            { key: 'source', label: locale === 'nl' ? 'Bron' : 'Source', width: 22 },
+            { key: 'status', label: 'Status', width: 14 },
+            { key: 'stage', label: locale === 'nl' ? 'Fase' : 'Stage', width: 16 },
+            { key: 'ownerName', label: locale === 'nl' ? 'Eigenaar' : 'Owner', width: 22 },
+            { key: 'department', label: locale === 'nl' ? 'Afdeling' : 'Department', width: 20 },
+            { key: 'planDueDate', label: locale === 'nl' ? 'Deadline' : 'Due date', width: 16 },
+          ]}
+          rows={filtered}
+          filename="capa"
+          count={filtered.length}
+        />
+      )}
 
       {/* Filters */}
       <div style={{ display: 'flex', gap: '10px', marginBottom: '20px', flexWrap: 'wrap', alignItems: 'center' }}>
