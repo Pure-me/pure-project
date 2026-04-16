@@ -1,0 +1,644 @@
+{
+  "users": [
+    {
+      "id": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "name": "Joeri",
+      "email": "joltenfreiter@gmail.com",
+      "passwordHash": "$2b$12$1X62IopnSAzL//BbdHMbn.eu3aDK4yoKQD.WpczwIr5uk64MjbWyy",
+      "role": "admin",
+      "createdAt": "2026-04-14T19:52:06.421Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "e453a5ff-121f-41ee-ac46-74eaef2a4962",
+      "name": "ISO 9001 Certificering",
+      "ownerId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "teamMembers": [],
+      "description": "Implementatie van het kwaliteitsmanagementsysteem conform ISO 9001:2015",
+      "status": "active",
+      "priority": "high",
+      "progress": 74,
+      "startDate": "2026-01-01",
+      "endDate": "2026-06-30",
+      "tags": [
+        "Kwaliteit",
+        "ISO",
+        "Certificering"
+      ],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T20:20:07.626Z",
+      "shortId": "PRJ-001",
+      "comments": [],
+      "attachments": []
+    },
+    {
+      "id": "fe372ff7-0a94-42dd-bea6-e08b17cc5096",
+      "name": "IT Infrastructuur Upgrade",
+      "ownerId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "teamMembers": [],
+      "description": "Modernisering van de IT-infrastructuur inclusief cloud migratie",
+      "status": "planning",
+      "priority": "medium",
+      "progress": 20,
+      "startDate": "2026-03-01",
+      "endDate": "2026-12-31",
+      "tags": [
+        "IT",
+        "Cloud",
+        "Infrastructuur"
+      ],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "PRJ-002",
+      "comments": [],
+      "attachments": []
+    },
+    {
+      "id": "d3b43e4c-fa6f-425d-a0ef-d678ca9ed1cf",
+      "name": "Business Continuity Plan 2026",
+      "ownerId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "teamMembers": [],
+      "description": "Opstellen en testen van het bedrijfscontinuïteitsplan",
+      "status": "active",
+      "priority": "critical",
+      "progress": 40,
+      "startDate": "2026-02-01",
+      "endDate": "2026-05-31",
+      "tags": [
+        "BCM",
+        "Continuïteit",
+        "Risico"
+      ],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "PRJ-003",
+      "comments": [],
+      "attachments": []
+    }
+  ],
+  "tasks": [
+    {
+      "id": "efb9063d-63b1-4940-af37-20486c42134f",
+      "projectId": "e453a5ff-121f-41ee-ac46-74eaef2a4962",
+      "title": "Interne audit Q1 uitvoeren",
+      "description": "Volledige interne audit conform ISO 9001 checklist",
+      "type": "task",
+      "status": "todo",
+      "priority": "high",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reporterId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-04-20",
+      "tags": [
+        "Audit"
+      ],
+      "attachments": [],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T20:16:08.722Z",
+      "completedAt": "2026-04-14T20:16:04.325Z",
+      "shortId": "TSK-001",
+      "comments": []
+    },
+    {
+      "id": "ee6b7877-b3fb-43d9-b1ba-a3b914b00ed4",
+      "projectId": "e453a5ff-121f-41ee-ac46-74eaef2a4962",
+      "title": "Managementreview voorbereiden",
+      "description": "Agenda en input voor de managementreview bijeenkomst",
+      "type": "action",
+      "status": "todo",
+      "priority": "medium",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reporterId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-04-30",
+      "tags": [
+        "Management"
+      ],
+      "attachments": [],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "ACT-002",
+      "comments": []
+    },
+    {
+      "id": "fe6fe827-21cf-4a3e-8176-e42096e5a57f",
+      "projectId": "fe372ff7-0a94-42dd-bea6-e08b17cc5096",
+      "title": "Cloud provider selecteren",
+      "description": "Offerteaanvraag bij Azure, AWS en Google Cloud",
+      "type": "milestone",
+      "status": "todo",
+      "priority": "high",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reporterId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-05-15",
+      "tags": [
+        "Cloud"
+      ],
+      "attachments": [],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "MIL-003",
+      "comments": []
+    },
+    {
+      "id": "c3156401-4e1e-4260-9e3b-1491c31648e7",
+      "projectId": "d3b43e4c-fa6f-425d-a0ef-d678ca9ed1cf",
+      "title": "BIA updaten voor alle processen",
+      "description": "Business Impact Analyse updaten op basis van nieuwe bedrijfsprocessen",
+      "type": "measure",
+      "status": "review",
+      "priority": "critical",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reporterId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-04-10",
+      "tags": [
+        "BIA",
+        "BCM"
+      ],
+      "attachments": [],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "MES-004",
+      "comments": []
+    }
+  ],
+  "documents": [
+    {
+      "id": "db3be137-e1d3-44d2-8fac-dc4d4f31079d",
+      "projectId": "e453a5ff-121f-41ee-ac46-74eaef2a4962",
+      "title": "Kwaliteitshandboek v3.0",
+      "type": "procedure",
+      "content": "Kwaliteitshandboek conform ISO 9001:2015...",
+      "version": "3.0",
+      "status": "approved",
+      "ownerId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "tags": [
+        "ISO",
+        "Kwaliteit"
+      ],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z"
+    },
+    {
+      "id": "144ec489-08e9-4a2e-ae38-f4822ad58a22",
+      "projectId": "d3b43e4c-fa6f-425d-a0ef-d678ca9ed1cf",
+      "title": "Business Continuity Plan",
+      "type": "policy",
+      "content": "BCP document...",
+      "version": "1.2",
+      "status": "review",
+      "ownerId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "tags": [
+        "BCM"
+      ],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z"
+    }
+  ],
+  "qualityItems": [
+    {
+      "id": "7468ec88-22df-4156-8bfc-fb55622eb38b",
+      "projectId": "e453a5ff-121f-41ee-ac46-74eaef2a4962",
+      "title": "Documenten niet up-to-date in kwaliteitssysteem",
+      "type": "non_conformity",
+      "status": "open",
+      "severity": "major",
+      "description": "Meerdere werkinstructies zijn niet bijgewerkt na proceswijziging.",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-04-25",
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "NC-001",
+      "comments": [],
+      "attachments": []
+    },
+    {
+      "id": "4522936d-8a36-4904-8bc8-554bf0fa02b8",
+      "projectId": "e453a5ff-121f-41ee-ac46-74eaef2a4962",
+      "title": "Automatische documentcontrole implementeren",
+      "type": "improvement",
+      "status": "in_progress",
+      "severity": "minor",
+      "description": "Implementeer automatische herinneringen voor documentrevisies.",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-05-31",
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "IMP-002",
+      "comments": [],
+      "attachments": []
+    },
+    {
+      "title": "QESH walk",
+      "type": "capa",
+      "status": "open",
+      "severity": "minor",
+      "description": "Tijdens de rondgang zijn 5 vaststellingen gedaan. Deze worden via de CAPA procedure opgevolgd",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-04-30",
+      "id": "099f671c-557c-425d-95f1-7e7ca28698e0",
+      "shortId": "CAPA-001",
+      "comments": [],
+      "createdAt": "2026-04-14T20:49:01.966Z",
+      "updatedAt": "2026-04-14T20:49:01.966Z",
+      "attachments": []
+    }
+  ],
+  "bcmItems": [
+    {
+      "id": "495bf930-181c-4160-bda5-716e804ec740",
+      "title": "Uitval kritieke IT-systemen",
+      "type": "risk",
+      "status": "assessed",
+      "likelihood": 3,
+      "impact": 5,
+      "description": "Volledige uitval van ERP-systeem door technisch falen of cyberaanval.",
+      "mitigationPlan": "Redundante infrastructuur, dagelijkse backups, DR-plan getest elk kwartaal.",
+      "recoveryTimeObjective": "4 uur",
+      "recoveryPointObjective": "1 uur",
+      "ownerId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reviewDate": "2026-06-30",
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "BCM-001",
+      "comments": [],
+      "attachments": []
+    },
+    {
+      "id": "859150ad-8b1b-4f74-96d1-01eeb689331e",
+      "title": "Brand in datacentrum",
+      "type": "risk",
+      "status": "mitigated",
+      "likelihood": 1,
+      "impact": 5,
+      "description": "Branddoorbreken in het on-premise datacentrum.",
+      "mitigationPlan": "Branddetectie, off-site backups, colocation overeenkomst.",
+      "recoveryTimeObjective": "24 uur",
+      "ownerId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reviewDate": "2026-12-31",
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "BCM-002",
+      "comments": [],
+      "attachments": []
+    },
+    {
+      "id": "7fb543d5-3e10-4de9-8ce4-be99c070a41b",
+      "title": "Kritieke leverancier valt weg",
+      "type": "risk",
+      "status": "identified",
+      "likelihood": 2,
+      "impact": 4,
+      "description": "Primaire leverancier gaat failliet of kan niet meer leveren.",
+      "mitigationPlan": "Alternatieve leveranciers geïdentificeerd, voorraadbuffer aangehouden.",
+      "ownerId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reviewDate": "2026-09-30",
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "BCM-003",
+      "comments": [],
+      "attachments": []
+    }
+  ],
+  "notifications": [
+    {
+      "id": "03c931cc-e3f8-4447-b3cc-74e64f587ef9",
+      "userId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "title": "Welkom bij Pure Project!",
+      "message": "Je werkomgeving is klaar. Maak je eerste project aan of vraag de AI om een overzicht.",
+      "type": "success",
+      "read": false,
+      "createdAt": "2026-04-14T19:52:06.422Z"
+    },
+    {
+      "id": "6d1711df-ad72-4cb1-9510-a9cafc191eaf",
+      "userId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "title": "BIA review deadline nadert",
+      "message": "De Business Impact Analyse voor \"Business Continuity Plan 2026\" moet worden afgerond.",
+      "type": "warning",
+      "read": false,
+      "createdAt": "2026-04-14T19:52:06.422Z"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Operaties",
+      "type": "workstream",
+      "color": "#3b82f6",
+      "description": "",
+      "id": "f309383b-e46a-4cba-b268-ff31a9e9bfa7",
+      "shortId": "CAT-001",
+      "createdAt": "2026-04-14T20:42:53.779Z",
+      "updatedAt": "2026-04-14T20:42:53.779Z"
+    }
+  ],
+  "workItems": [
+    {
+      "id": "efb9063d-63b1-4940-af37-20486c42134f",
+      "projectId": "e453a5ff-121f-41ee-ac46-74eaef2a4962",
+      "title": "Interne audit Q1 uitvoeren",
+      "description": "Volledige interne audit conform ISO 9001 checklist",
+      "type": "task",
+      "status": "todo",
+      "priority": "high",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reporterId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-04-20",
+      "tags": [
+        "Audit"
+      ],
+      "attachments": [],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T20:16:08.722Z",
+      "completedAt": "2026-04-14T20:16:04.325Z",
+      "shortId": "TSK-001",
+      "comments": []
+    },
+    {
+      "id": "ee6b7877-b3fb-43d9-b1ba-a3b914b00ed4",
+      "projectId": "e453a5ff-121f-41ee-ac46-74eaef2a4962",
+      "title": "Managementreview voorbereiden",
+      "description": "Agenda en input voor de managementreview bijeenkomst",
+      "type": "action",
+      "status": "todo",
+      "priority": "medium",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reporterId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-04-30",
+      "tags": [
+        "Management"
+      ],
+      "attachments": [],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "ACT-002",
+      "comments": []
+    },
+    {
+      "id": "fe6fe827-21cf-4a3e-8176-e42096e5a57f",
+      "projectId": "fe372ff7-0a94-42dd-bea6-e08b17cc5096",
+      "title": "Cloud provider selecteren",
+      "description": "Offerteaanvraag bij Azure, AWS en Google Cloud",
+      "type": "milestone",
+      "status": "todo",
+      "priority": "high",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reporterId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-05-15",
+      "tags": [
+        "Cloud"
+      ],
+      "attachments": [],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-14T19:52:06.422Z",
+      "shortId": "MIL-003",
+      "comments": []
+    },
+    {
+      "id": "c3156401-4e1e-4260-9e3b-1491c31648e7",
+      "projectId": "d3b43e4c-fa6f-425d-a0ef-d678ca9ed1cf",
+      "title": "BIA updaten voor alle processen",
+      "description": "Business Impact Analyse updaten op basis van nieuwe bedrijfsprocessen",
+      "type": "measure",
+      "status": "review",
+      "priority": "critical",
+      "assigneeId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "reporterId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "dueDate": "2026-04-10",
+      "tags": [
+        "BIA",
+        "BCM"
+      ],
+      "attachments": [],
+      "createdAt": "2026-04-14T19:52:06.422Z",
+      "updatedAt": "2026-04-15T16:53:36.177Z",
+      "shortId": "MES-004",
+      "comments": [
+        {
+          "id": "3ffc2167-6450-43fb-ad2f-75b1e67d612a",
+          "authorId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+          "authorName": "Joeri",
+          "text": "Test",
+          "type": "comment",
+          "createdAt": "2026-04-15T16:53:28.894Z"
+        },
+        {
+          "id": "953fc9e2-de76-476a-8a0b-ad9ab0fea6f1",
+          "authorId": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+          "authorName": "Joeri",
+          "text": "Test 2",
+          "type": "comment",
+          "createdAt": "2026-04-15T16:53:36.177Z"
+        }
+      ]
+    }
+  ],
+  "counters": {
+    "PRJ": 3,
+    "MES": 0,
+    "ACT": 0,
+    "TSK": 0,
+    "MIL": 0,
+    "NC": 0,
+    "IMP": 0,
+    "AUD": 0,
+    "CAPA": 1,
+    "KPI": 0,
+    "CAT": 1,
+    "BCM": 0,
+    "CAPAF": 1
+  },
+  "capas": [
+    {
+      "stage": "risk_assessment",
+      "status": "verification",
+      "initiationDate": "2026-04-15",
+      "initiatedBy": "cde3d490-fb29-41d1-8553-9f4b56a9162c",
+      "initiatedByName": "Joeri Oltenfreiter",
+      "initiatedByJobTitle": "Project Manager",
+      "department": "Operaties",
+      "scope": "QESH walk",
+      "source": "internal_audit",
+      "sourceReference": "XXX",
+      "sourceOtherDescription": "",
+      "nonconformityDescription": "Er zijn 5 vaststellingen gebeurd: Nr.\tOmschrijving vaststelling\n1\tGebrek aan controle, onderhoud en netheid mbt de afvalcontainers. Containers zijn vuil, beschadigd, niet afgesloten en foutief of niet gelabeld.\n2\tGoederen die niet op een correcte locatie staan. Paletten aangetroffen op niet-formele locaties.\n3\tStructurele opbouw van afval en vuil op moeilijk bereikbare en verborgen plekken.\n4\tBronnen van productvreemde delen: ijsvorming store 3, roest en afbladerende verf ingang 2 & 3, vuile zakken blazers store 7.\n5\tVrije toegang tot het dak via trap in store 7. Geen slot, geen signalisatie aanwezig.\n ",
+      "ownerName": "Joeri Oltenfreiter",
+      "ownerJobTitle": "Project Manager",
+      "assignmentDate": "2026-04-15",
+      "planDueDate": "2026-05-06",
+      "capaTeam": "",
+      "riskCustomer": "Product contamination\n",
+      "riskCompany": "inbreuk voedselveiligheid, ongedierte, productvreemde delen\nHygiëne, audit‑non‑compliance\nArbeidsveiligheid, aansprakelijkheid\n",
+      "riskProcess": "Traceability",
+      "correction": "Verwijderen zichtbaar afval waar veilig bereikbaar\nIjs manueel verwijderd indien acuut risico\nTijdelijke melding technische dienst m.b.t. daktoegang\nHACCP team is bij mekaar geroepen om deze vaststellingen te bespreken en acties uit te zetten",
+      "rcaMethods": [],
+      "rcaDescription": "Vaststelling 1: Gebrek aan controle, onderhoud en netheid m.b.t. de afvalcontainers\nUit de analyse blijkt dat afvalcontainers structureel vuil, beschadigd, niet afgesloten en foutief of niet gelabeld zijn. Hierdoor is er verhoogd risico op ongedierte, productvreemde delen en foutieve afvalstromen. Tijdens de analyse werd vastgesteld dat er geen duidelijk en formeel vastgelegd eigenaarschap is voor het beheer van deze containers. Daarnaast ontbreken vaste inspectie‑, reinigings‑ en vervangingsafspraken binnen het sitebeheerproces.\nVaststelling 2: Goederen die niet op een correcte locatie staan\nPaletten worden op niet‑formele locaties opgeslagen, wat leidt tot verhoogde veiligheidsrisico’s (aanrijdingen) en risico’s op fouten in traceability. Analyse toont aan dat deze situatie ontstaat door ad‑hoc oplossingen voor reserve en overschot, het ontbreken van duidelijk gedefinieerde reservezones en onvoldoende duidelijke taakafspraken voor de vloerman. De bestaande regels rond opslagdiscipline worden niet consequent toegepast en opgevolgd.\nVaststelling 3: Structurele opbouw van afval en vuil op moeilijk bereikbare en verborgen plekken\nVuilophoping werd vastgesteld op verborgen en moeilijk bereikbare zones, wat wijst op een structureel tekort in het schoonmaakbeheer. Het huidige schoonmaakplan bevat deze zones onvoldoende of niet expliciet, waardoor ze systematisch buiten scope vallen. Er is geen periodieke evaluatie of verificatie van de effectiviteit van het schoonmaakplan voor deze zones.\nVaststelling 4: Bronnen van productvreemde delen (ijs, roest, afbladderende verf, vuil)\nMeerdere bronnen van productvreemde delen werden vastgesteld, waaronder ijsvorming, roest, afbladderende verf en vervuilde onderdelen. De analyse toont aan dat deze risico’s ontstaan door een combinatie van operationele handelingen (bv. deuren open laten) en technische degradatie. Preventieve maatregelen en opvolging door OPS en Technical zijn onvoldoende structureel afgestemd en opgevolgd.\nVaststelling 5: Vrije toegang tot het dak via trap in store 7. \nDe toegang tot het dak is vrij toegankelijk, zonder slot of signalisatie.\n\n\n\n",
+      "rootCause": "Vaststelling 1: Onvoldoende structurele borging van afvalcontainerbeheer binnen site‑beheer door ontbrekend formeel eigenaarschap, duidelijke procedures en opvolging.\nVaststelling 2: Onvoldoende duidelijke operationele standaarden, verantwoordelijkheden en opvolging rond opslagdiscipline en locatiebeheer.\nVaststelling 3: Onvoldoende uitgewerkt en periodiek geëvalueerd schoonmaakbeheer voor moeilijk bereikbare en verborgen zones binnen de site.\nVaststelling 4: Onvoldoende geïntegreerde structurele aanpak tussen OPS en Technical voor preventie en opvolging van productvreemde‑delen‑risico’s.\nVaststelling 5: Ontbrekende structurele veiligheidsbeheersing en risico‑identificatie voor facility‑gerelateerde toegangen binnen site‑beheer.\nOverkoepelende conclusie: De vastgestelde non‑conformiteiten zijn voornamelijk het gevolg van onvoldoende structurele borging van site‑beheerprocessen, met name rond eigenaarschap, procedures, opvolging en periodieke effectiviteitscontrole.",
+      "actionPlanType": "corrective",
+      "verificationPlan": "",
+      "verificationResponsibleName": "",
+      "conclusion": "",
+      "validationConfirmed": false,
+      "id": "5d6c5b11-3f66-41ba-9313-98b34d8736df",
+      "shortId": "CAPA-001",
+      "actions": [
+        {
+          "id": "g7nvwfnnf0omo0bp78v",
+          "description": "Inventaris en inspecitie van alle aanwezige afvalcontainers",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "8k2vue57b7smo0cofz4",
+          "description": "Vervuilde containers worden gereinigd, beschadigde of niet‑afsluitbare containers worden uit dienst genomen en vervangen.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "0w6n8so9dubnmo0cpb1o",
+          "description": "Alle containers worden duidelijk en correct gelabeld volgens afvalstroom (incl. verbod op voedselafval waar niet toegestaan).",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "ek3pxoeq57nmo0cpmcm",
+          "description": "Containers die buiten of op de kaai gebruikt worden, worden altijd afgesloten. Instructie op te maken naar alle medewerkers",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "dreh7hv97dqmo0cqfpj",
+          "description": "Alle paletten die zich op niet‑formele locaties bevinden worden onmiddellijk verplaatst naar formeel gedefinieerde locaties.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "1cqx8ygb71vmo0crd0n",
+          "description": "Tijdelijke opstapeling of reserve wordt geclusterd in een duidelijk afgebakende zone",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "cmgb7bzyfnemo0crpyu",
+          "description": "Controle na elke activiteit of alle goederen op de juiste plaats geplaatst staan",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "qlyg66dbyzqmo0ct0ne",
+          "description": "Alle veilig bereikbaar bevonden zones worden onmiddellijk gereinigd (met geschikt materiaal, bv. industriële stofzuiger).",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "u2tfnu2cug8mo0ct4hs",
+          "description": "Voor moeilijk bereikbare zones wordt eenmalig extra reiniging ingepland in samenwerking tussen OPS en Technical.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "ly6gfvoab7cmo0ctbqx",
+          "description": "Visueel gereinigde zones worden gecontroleerd en vrijgegeven door OPS.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "a6a5zwa8dfqmo0ctmow",
+          "description": "Ijsvorming aan doorgang store 3 wordt onmiddellijk verwijderd.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "z7b46yckx4nmo0ctwj1",
+          "description": "Roest en afbladderende verf aan ingang 2 en 3 worden verwijderd ",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "ry0xkxn6okmo0cufsl",
+          "description": "Vuile zakken aan blazers store 7 worden gereinigd of vervangen.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "kwry490q7vmo0cupxe",
+          "description": "Betrokken zones worden gecontroleerd op mogelijke productcontaminatie.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "lanlw4gvrsmo0cuwsn",
+          "description": "Toegang tot het dak wordt onmiddellijk fysiek beperkt (deur afsluiten of tijdelijke blokkering).",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "bajsz4t56cgmo0cv8f5",
+          "description": "Tijdelijke signalisatie wordt aangebracht: “Verboden toegang – enkel bevoegd personeel”.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        },
+        {
+          "id": "z70hxl7b22mo0cvkne",
+          "description": "Medewerkers worden onmiddellijk geïnformeerd dat toegang tot het dak niet is toegestaan.",
+          "ownerName": "",
+          "ownerJobTitle": "",
+          "dueDate": "",
+          "status": "open"
+        }
+      ],
+      "verificationChecks": [
+        {
+          "checkNumber": 1,
+          "description": "",
+          "method": ""
+        },
+        {
+          "checkNumber": 2,
+          "description": "",
+          "method": ""
+        },
+        {
+          "checkNumber": 3,
+          "description": "",
+          "method": ""
+        }
+      ],
+      "comments": [],
+      "attachments": [],
+      "createdAt": "2026-04-15T17:21:33.054Z",
+      "updatedAt": "2026-04-15T18:49:20.628Z"
+    }
+  ]
+}
