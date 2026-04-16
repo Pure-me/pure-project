@@ -84,7 +84,7 @@ const translations = {
     // Priority labels
     priority: {
       low: 'Laag',
-      medium: 'Medium',
+      medium: 'Gemiddeld',
       high: 'Hoog',
       critical: 'Kritiek',
     },

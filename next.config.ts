@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Production-ready config
   poweredByHeader: false,
   compress: true,
 
-  // Security headers
+  // Comprehensive security headers
   async headers() {
     return [
       {
@@ -15,19 +14,32 @@ const nextConfig: NextConfig = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'X-XSS-Protection', value: '1; mode=block' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=()' },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: blob: https:",
+              "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+              "frame-ancestors 'none'",
+            ].join('; '),
+          },
         ],
       },
-    ];
-  },
-
-  // Redirects: ensure www → non-www
-  async redirects() {
-    return [
+      // No-cache for API routes
       {
-        source: '/',
-        destination: '/dashboard',
-        permanent: false,
-        has: [{ type: 'cookie', key: 'auth-token' }],
+        source: '/api/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate' },
+          { key: 'Pragma', value: 'no-cache' },
+        ],
       },
     ];
   },
