@@ -52,3 +52,22 @@
   .kanban-board > div { min-width: 280px; }
   .plan-grid { grid-template-columns: 1fr !important; }
 }
+
+/* ─── Dashboard main content responsive ─────────────────────── */
+.dashboard-main {
+  flex: 1;
+  margin-left: 260px;
+  padding: 32px;
+  max-width: calc(100vw - 260px);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    margin-left: 0 !important;
+    padding: 16px;
+    max-width: 100vw;
+    padding-top: 64px;
+  }
+}

@@ -30,8 +30,8 @@ const t = {
       subtitle: 'Geen verborgen kosten. Annuleer wanneer je wil.',
       plans: [
         { name: 'Gratis proefperiode', price: '€0', period: '14 dagen', desc: 'Probeer alle functies zonder risico.', features: ['Volledige toegang tot alle modules','Onbeperkte projecten & taken','ISO 9001 & ISO 22301 tools','CAPA-beheer','E-mailondersteuning'], cta: 'Gratis starten', highlight: false },
-        { name: 'Pro Maandelijks', price: '€23,78', period: 'per maand', desc: 'Alles wat een groeiend team nodig heeft.', features: ['Alles uit de proefperiode','Onbeperkte teamleden','Prioriteitsondersteuning','Geavanceerde rapportage','API-toegang'], cta: 'Start nu', highlight: true },
-        { name: 'Pro Jaarlijks', price: '€250', period: 'per jaar', desc: 'Het beste tarief voor toegewijde teams.', features: ['Alles uit Pro Maandelijks','2 maanden gratis','Toegewijde accountmanager','Onboarding-sessie','SLA-garantie'], cta: 'Start nu', highlight: false },
+        { name: 'Solo', price: '€23,78', period: '/maand', desc: 'Voor individuele professionals en kleine teams.', features: ['Alle modules inbegrepen','Projecten, taken & Kanban','ISO 9001 & ISO 22301','CAPA-beheer','Of €250/jaar (bespaar 12%)'], cta: 'Start nu', highlight: true },
+        { name: 'Extended', price: '€53,30', period: '/maand', desc: 'Voor teams die samen willen werken in één omgeving.', features: ['Alles uit Solo','Onbeperkt teamleden uitnodigen','3 rollen: Eigenaar / Beheerder / Lid','Gedeelde projecten & taken','Of €530/jaar (bespaar 17%)'], cta: 'Team starten', highlight: false },
       ],
     },
     social: {
@@ -47,7 +47,7 @@ const t = {
       items: [
         { q: 'Wat is Pure Project?', a: "Pure Project is een SaaS-platform dat projectmanagement, kwaliteitsmanagement (ISO 9001) en bedrijfscontinuïteit (ISO 22301) combineert. Inclusief CAPA-module, non-conformiteiten en BCM-risico's." },
         { q: 'Ondersteunt Pure Project ISO 9001?', a: 'Ja. Non-conformiteiten, root cause analysis, CAPA, auditbevindingen en KPI-opvolging — alles voor ISO 9001-conformiteit.' },
-        { q: 'Wat kost Pure Project?', a: '14 dagen volledig gratis, geen creditcard. Daarna €23,78/maand of €250/jaar (12% korting).' },
+        { q: 'Wat kost Pure Project?', a: '14 dagen volledig gratis, geen creditcard vereist. Solo-plan: €23,78/maand of €250/jaar. Extended team-plan: €53,30/maand of €530/jaar (17% korting).' },
         { q: 'Wat is CAPA-beheer?', a: 'Corrective and Preventive Actions — oorzaakanalyse, actieplanning, deadlines en verificatiestappen voor ISO 9001.' },
         { q: 'Is Pure Project GDPR-compliant?', a: 'Ja. Data in EU (Frankfurt), dataportabiliteit, accountverwijdering en profielbeheer conform GDPR.' },
       ],
@@ -82,8 +82,8 @@ const t = {
       subtitle: 'No hidden costs. Cancel anytime.',
       plans: [
         { name: 'Free Trial', price: '€0', period: '14 days', desc: 'Try all features risk-free.', features: ['Full access to all modules','Unlimited projects & tasks','ISO 9001 & ISO 22301 tools','CAPA management','Email support'], cta: 'Start for free', highlight: false },
-        { name: 'Pro Monthly', price: '€23.78', period: 'per month', desc: 'Everything a growing team needs.', features: ['Everything in the free trial','Unlimited team members','Priority support','Advanced reporting','API access'], cta: 'Start now', highlight: true },
-        { name: 'Pro Yearly', price: '€250', period: 'per year', desc: 'The best rate for committed teams.', features: ['Everything in Pro Monthly','2 months free','Dedicated account manager','Onboarding session','SLA guarantee'], cta: 'Start now', highlight: false },
+        { name: 'Solo', price: '€23.78', period: '/month', desc: 'For individual professionals and small teams.', features: ['All modules included','Projects, tasks & Kanban','ISO 9001 & ISO 22301','CAPA management','Or €250/year (save 12%)'], cta: 'Start now', highlight: true },
+        { name: 'Extended', price: '€53.30', period: '/month', desc: 'For teams that want to collaborate in one environment.', features: ['Everything in Solo','Unlimited team members','3 roles: Owner / Admin / Member','Shared projects & tasks','Or €530/year (save 17%)'], cta: 'Start team', highlight: false },
       ],
     },
     social: {
@@ -99,7 +99,7 @@ const t = {
       items: [
         { q: 'What is Pure Project?', a: 'Pure Project is a SaaS platform combining project management, quality management (ISO 9001) and business continuity (ISO 22301). Includes CAPA module, non-conformance tracking and BCM risks.' },
         { q: 'Does Pure Project support ISO 9001?', a: 'Yes. Non-conformities, root cause analysis, CAPA, audit findings and KPI tracking — everything for ISO 9001 compliance.' },
-        { q: 'How much does Pure Project cost?', a: '14 days completely free, no credit card. Then €23.78/month or €250/year (12% discount).' },
+        { q: 'How much does Pure Project cost?', a: '14 days completely free, no credit card required. Solo plan: €23.78/month or €250/year. Extended team plan: €53.30/month or €530/year (17% discount).' },
         { q: 'What is CAPA management?', a: 'Corrective and Preventive Actions — cause analysis, action planning, deadlines and verification steps for ISO 9001.' },
         { q: 'Is Pure Project GDPR compliant?', a: 'Yes. Data in EU (Frankfurt), data portability, account deletion and profile management compliant with GDPR.' },
       ],
