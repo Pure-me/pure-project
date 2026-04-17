@@ -15,13 +15,15 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#0a0f1e' }}>
-      <Sidebar user={{
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        plan: profile?.plan || 'solo',
-      }} />
+      <Sidebar
+        user={{
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+        }}
+        plan={profile?.plan || 'solo'}
+      />
       <main className="dashboard-main">
         {children}
       </main>
