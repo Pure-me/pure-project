@@ -9,6 +9,7 @@ interface User {
   name: string;
   email: string;
   role: string;
+  plan?: string;
 }
 
 export default function Sidebar({ user }: { user: User }) {
@@ -16,11 +17,22 @@ export default function Sidebar({ user }: { user: User }) {
   const router = useRouter();
   const { t, locale } = useI18n();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [plan, setPlan] = useState(user.plan || '');
 
-  // Close sidebar on route change (mobile)
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!user.plan) {
+      fetch('/api/auth/me')
+        .then(r => r.ok ? r.json() : null)
+        .then(data => { if (data?.plan) setPlan(data.plan); })
+        .catch(() => {});
+    }
+  }, [user.plan]);
+
+  const isExtended = plan === 'extended';
 
   const navItems = [
     { href: '/dashboard', label: t.nav.dashboard, icon: '⬡' },
@@ -29,7 +41,9 @@ export default function Sidebar({ user }: { user: User }) {
     { href: '/dashboard/quality', label: t.nav.quality, icon: '🔍' },
     { href: '/dashboard/capa', label: t.nav.capa, icon: '🔁' },
     { href: '/dashboard/bcm', label: t.nav.bcm, icon: '🛡️' },
+    ...(isExtended ? [{ href: '/dashboard/team', label: locale === 'nl' ? 'Team' : 'Team', icon: '👥' }] : []),
     { href: '/dashboard/setup', label: t.nav.settings, icon: '⚙️' },
+    { href: '/dashboard/billing', label: locale === 'nl' ? 'Abonnement' : 'Subscription', icon: '💳' },
     { href: '/dashboard/account', label: locale === 'nl' ? 'Mijn account' : 'My account', icon: '👤' },
   ];
 
@@ -87,6 +101,24 @@ export default function Sidebar({ user }: { user: User }) {
           </div>
         </div>
 
+        {/* Extended badge */}
+        {isExtended && (
+          <div style={{
+            margin: '-16px 0 20px',
+            padding: '6px 12px',
+            background: 'linear-gradient(135deg, rgba(139,92,246,0.15), rgba(59,130,246,0.15))',
+            border: '1px solid rgba(139,92,246,0.3)',
+            borderRadius: '8px',
+            fontSize: '11px',
+            color: '#a78bfa',
+            textAlign: 'center',
+            fontWeight: '600',
+            letterSpacing: '0.05em',
+          }}>
+            ✦ EXTENDED PLAN
+          </div>
+        )}
+
         {/* Nav */}
         <nav style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
           {navItems.map(item => {
@@ -94,7 +126,7 @@ export default function Sidebar({ user }: { user: User }) {
               ? pathname === '/dashboard'
               : pathname.startsWith(item.href);
             return (
-              <a
+              
                 key={item.href}
                 href={item.href}
                 className={`sidebar-item${isActive ? ' active' : ''}`}
@@ -112,7 +144,6 @@ export default function Sidebar({ user }: { user: User }) {
           paddingTop: '16px',
           marginTop: '16px',
         }}>
-          {/* Language toggle */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
             <LanguageToggle />
           </div>
