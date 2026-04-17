@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 async function checkAccess(userId: string, orgId: string) {
   const { data } = await supabaseAdmin
@@ -16,15 +16,16 @@ async function checkAccess(userId: string, orgId: string) {
 
 export async function GET(_req: NextRequest, { params }: Params) {
   const user = await getSession();
+  const { id } = await params;
   if (!user) return NextResponse.json({ error: 'Niet ingelogd' }, { status: 401 });
 
-  const role = await checkAccess(user.id, params.id);
+  const role = await checkAccess(user.id, id);
   if (!role) return NextResponse.json({ error: 'Geen toegang' }, { status: 403 });
 
   const { data, error } = await supabaseAdmin
     .from('organization_members')
     .select('user_id, role, invited_by, created_at, profiles(full_name, avatar_url)')
-    .eq('organization_id', params.id);
+    .eq('organization_id', id);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
@@ -43,9 +44,10 @@ export async function GET(_req: NextRequest, { params }: Params) {
 
 export async function PATCH(req: NextRequest, { params }: Params) {
   const user = await getSession();
+  const { id } = await params;
   if (!user) return NextResponse.json({ error: 'Niet ingelogd' }, { status: 401 });
 
-  const myRole = await checkAccess(user.id, params.id);
+  const myRole = await checkAccess(user.id, id);
   if (!myRole || !['owner', 'admin'].includes(myRole))
     return NextResponse.json({ error: 'Geen rechten' }, { status: 403 });
 
@@ -53,19 +55,20 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   if (!['admin', 'member'].includes(role)) return NextResponse.json({ error: 'Ongeldig role' }, { status: 400 });
 
   const { data: target } = await supabaseAdmin.from('organization_members').select('role')
-    .eq('organization_id', params.id).eq('user_id', userId).single();
+    .eq('organization_id', id).eq('user_id', userId).single();
   if (target?.role === 'owner') return NextResponse.json({ error: 'Eigenaar kan niet gewijzigd worden' }, { status: 400 });
 
   await supabaseAdmin.from('organization_members').update({ role })
-    .eq('organization_id', params.id).eq('user_id', userId);
+    .eq('organization_id', id).eq('user_id', userId);
   return NextResponse.json({ success: true });
 }
 
 export async function DELETE(req: NextRequest, { params }: Params) {
   const user = await getSession();
+  const { id } = await params;
   if (!user) return NextResponse.json({ error: 'Niet ingelogd' }, { status: 401 });
 
-  const myRole = await checkAccess(user.id, params.id);
+  const myRole = await checkAccess(user.id, id);
   if (!myRole) return NextResponse.json({ error: 'Geen toegang' }, { status: 403 });
 
   const { searchParams } = new URL(req.url);
@@ -75,10 +78,10 @@ export async function DELETE(req: NextRequest, { params }: Params) {
     return NextResponse.json({ error: 'Geen rechten' }, { status: 403 });
 
   const { data: target } = await supabaseAdmin.from('organization_members').select('role')
-    .eq('organization_id', params.id).eq('user_id', targetUserId).single();
+    .eq('organization_id', id).eq('user_id', targetUserId).single();
   if (target?.role === 'owner') return NextResponse.json({ error: 'Eigenaar kan niet verwijderd worden' }, { status: 400 });
 
   await supabaseAdmin.from('organization_members').delete()
-    .eq('organization_id', params.id).eq('user_id', targetUserId);
+    .eq('organization_id', id).eq('user_id', targetUserId);
   return NextResponse.json({ success: true });
 }

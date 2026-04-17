@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 async function checkAccess(userId: string, orgId: string) {
   const { data } = await supabaseAdmin
@@ -13,9 +13,10 @@ async function checkAccess(userId: string, orgId: string) {
 
 export async function POST(req: NextRequest, { params }: Params) {
   const user = await getSession();
+  const { id } = await params;
   if (!user) return NextResponse.json({ error: 'Niet ingelogd' }, { status: 401 });
 
-  const myRole = await checkAccess(user.id, params.id);
+  const myRole = await checkAccess(user.id, id);
   if (!myRole || !['owner', 'admin'].includes(myRole))
     return NextResponse.json({ error: 'Geen rechten om uit te nodigen' }, { status: 403 });
 
@@ -27,23 +28,23 @@ export async function POST(req: NextRequest, { params }: Params) {
   const existingUser = authUsers?.users?.find((u: any) => u.email?.toLowerCase() === email.toLowerCase());
   if (existingUser) {
     const { data: existing } = await supabaseAdmin.from('organization_members').select('user_id')
-      .eq('organization_id', params.id).eq('user_id', existingUser.id).single();
+      .eq('organization_id', id).eq('user_id', existingUser.id).single();
     if (existing) return NextResponse.json({ error: 'Gebruiker is al lid' }, { status: 409 });
   }
 
   const { data: invite, error } = await supabaseAdmin
     .from('organization_invitations')
-    .insert({ organization_id: params.id, email: email.toLowerCase().trim(), role, invited_by: user.id })
+    .insert({ organization_id: id, email: email.toLowerCase().trim(), role, invited_by: user.id })
     .select().single();
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-  const { data: org } = await supabaseAdmin.from('organizations').select('name').eq('id', params.id).single();
+  const { data: org } = await supabaseAdmin.from('organizations').select('name').eq('id', id).single();
   const inviteUrl = `\${process.env.NEXT_PUBLIC_APP_URL}/invite/\${invite.token}`;
 
   await supabaseAdmin.auth.admin.inviteUserByEmail(email, {
     redirectTo: inviteUrl,
-    data: { organization_id: params.id, organization_name: org?.name, invite_token: invite.token, role },
+    data: { organization_id: id, organization_name: org?.name, invite_token: invite.token, role },
   });
 
   return NextResponse.json({ success: true, token: invite.token, inviteUrl }, { status: 201 });
@@ -51,16 +52,17 @@ export async function POST(req: NextRequest, { params }: Params) {
 
 export async function GET(_req: NextRequest, { params }: Params) {
   const user = await getSession();
+  const { id } = await params;
   if (!user) return NextResponse.json({ error: 'Niet ingelogd' }, { status: 401 });
 
-  const myRole = await checkAccess(user.id, params.id);
+  const myRole = await checkAccess(user.id, id);
   if (!myRole || !['owner', 'admin'].includes(myRole))
     return NextResponse.json({ error: 'Geen toegang' }, { status: 403 });
 
   const { data, error } = await supabaseAdmin
     .from('organization_invitations')
     .select('id, email, role, token, created_at, expires_at')
-    .eq('organization_id', params.id)
+    .eq('organization_id', id)
     .is('accepted_at', null)
     .gt('expires_at', new Date().toISOString())
     .order('created_at', { ascending: false });

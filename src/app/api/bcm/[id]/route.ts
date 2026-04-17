@@ -2,16 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 export async function GET(_req: NextRequest, { params }: Params) {
   const user = await getSession();
+  const { id } = await params;
   if (!user) return NextResponse.json({ error: 'Niet ingelogd' }, { status: 401 });
 
   const { data, error } = await supabaseAdmin
     .from('bcm_items')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (error || !data) return NextResponse.json({ error: 'Niet gevonden' }, { status: 404 });
@@ -20,13 +21,14 @@ export async function GET(_req: NextRequest, { params }: Params) {
 
 export async function PATCH(req: NextRequest, { params }: Params) {
   const user = await getSession();
+  const { id } = await params;
   if (!user) return NextResponse.json({ error: 'Niet ingelogd' }, { status: 401 });
 
   const body = await req.json();
   const { data, error } = await supabaseAdmin
     .from('bcm_items')
     .update({ ...body, updated_at: new Date().toISOString() })
-    .eq('id', params.id)
+    .eq('id', id)
     .select()
     .single();
 
@@ -36,12 +38,13 @@ export async function PATCH(req: NextRequest, { params }: Params) {
 
 export async function DELETE(_req: NextRequest, { params }: Params) {
   const user = await getSession();
+  const { id } = await params;
   if (!user) return NextResponse.json({ error: 'Niet ingelogd' }, { status: 401 });
 
   const { error } = await supabaseAdmin
     .from('bcm_items')
     .delete()
-    .eq('id', params.id);
+    .eq('id', id);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json({ success: true });
