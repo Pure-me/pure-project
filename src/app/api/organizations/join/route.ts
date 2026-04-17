@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
   const userEmail = authUser?.user?.email?.toLowerCase();
   if (userEmail && invite.email && userEmail !== invite.email.toLowerCase()) {
     return NextResponse.json(
-      { error: \`Deze uitnodiging is voor \${invite.email}. Log in met dat e-mailadres.\` },
+      { error: `Deze uitnodiging is voor \${invite.email}. Log in met dat e-mailadres.` },
       { status: 403 }
     );
   }

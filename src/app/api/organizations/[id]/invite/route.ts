@@ -39,7 +39,7 @@ export async function POST(req: NextRequest, { params }: Params) {
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   const { data: org } = await supabaseAdmin.from('organizations').select('name').eq('id', params.id).single();
-  const inviteUrl = \`\${process.env.NEXT_PUBLIC_APP_URL}/invite/\${invite.token}\`;
+  const inviteUrl = `\${process.env.NEXT_PUBLIC_APP_URL}/invite/\${invite.token}`;
 
   await supabaseAdmin.auth.admin.inviteUserByEmail(email, {
     redirectTo: inviteUrl,
@@ -70,6 +70,6 @@ export async function GET(_req: NextRequest, { params }: Params) {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL;
   return NextResponse.json((data || []).map((inv: any) => ({
     ...inv,
-    inviteUrl: \`\${appUrl}/invite/\${inv.token}\`,
+    inviteUrl: `\${appUrl}/invite/\${inv.token}`,
   })));
 }
