@@ -33,6 +33,11 @@ async function updateSubscription(userId: string, sub: Stripe.Subscription) {
     .eq('id', userId);
 }
 
+async function getActiveSubForCustomer(customerId: string): Promise<Stripe.Subscription | null> {
+  const { data } = await stripe.subscriptions.list({ customer: customerId, limit: 1 });
+  return data[0] ?? null;
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.text();
   const sig = req.headers.get('stripe-signature')!;
@@ -40,12 +45,13 @@ export async function POST(req: NextRequest) {
   let event: Stripe.Event;
   try {
     event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
   }
 
   try {
     switch (event.type) {
+
       case 'checkout.session.completed': {
         const session = event.data.object as Stripe.Checkout.Session;
         if (session.mode !== 'subscription') break;
@@ -55,12 +61,14 @@ export async function POST(req: NextRequest) {
         if (userId) await updateSubscription(userId, sub);
         break;
       }
+
       case 'customer.subscription.updated': {
         const sub = event.data.object as Stripe.Subscription;
         const userId = sub.metadata?.userId || await getUserIdByCustomer(sub.customer as string);
         if (userId) await updateSubscription(userId, sub);
         break;
       }
+
       case 'customer.subscription.deleted': {
         const sub = event.data.object as Stripe.Subscription;
         const userId = sub.metadata?.userId || await getUserIdByCustomer(sub.customer as string);
@@ -71,24 +79,29 @@ export async function POST(req: NextRequest) {
         }
         break;
       }
+
       case 'invoice.payment_succeeded': {
         const invoice = event.data.object as Stripe.Invoice;
-        if (!invoice.subscription) break;
-        const sub = await stripe.subscriptions.retrieve(invoice.subscription as string);
-        const userId = sub.metadata?.userId || await getUserIdByCustomer(invoice.customer as string);
-        if (userId) await updateSubscription(userId, sub);
+        const customerId = invoice.customer as string;
+        const userId = await getUserIdByCustomer(customerId);
+        if (!userId) break;
+        const sub = await getActiveSubForCustomer(customerId);
+        if (sub) await updateSubscription(userId, sub);
         break;
       }
+
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice;
         const userId = await getUserIdByCustomer(invoice.customer as string);
         if (!userId) break;
         const attemptCount = invoice.attempt_count ?? 1;
-        const status = attemptCount >= 3 ? 'blocked' : 'past_due';
-        await supabaseAdmin.from('profiles').update({ subscription_status: status }).eq('id', userId);
+        await supabaseAdmin.from('profiles')
+          .update({ subscription_status: attemptCount >= 3 ? 'blocked' : 'past_due' })
+          .eq('id', userId);
         break;
       }
     }
+
     return NextResponse.json({ received: true });
   } catch (err) {
     console.error('Webhook error:', err);
