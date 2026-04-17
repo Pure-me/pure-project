@@ -3,15 +3,20 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
-  "regions": ["cdg1"],
+  "regions": [
+    "cdg1"
+  ],
   "env": {
-    "NEXT_PUBLIC_APP_URL": "https://pureexcellence.be"
+    "NEXT_PUBLIC_APP_URL": "https://pure-project.pureexcellence.be"
   },
   "headers": [
     {
       "source": "/api/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store, no-cache" }
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache"
+        }
       ]
     }
   ]
